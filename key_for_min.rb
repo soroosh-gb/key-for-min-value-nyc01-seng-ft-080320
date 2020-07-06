@@ -4,22 +4,14 @@
 
 
 def key_for_min_value(name_hash)
-  i = 0
-  vals = []
+  lowest_value = 0 
+  lowest_key = key 
   
-  while i < name_hash.count do
-    vals << name_hash.values[i]
-    if vals.count > 0
-      minimum = vals[0]
-      count = 1
-      while count < vals.count do
-        if vals[count] < minimum
-          minimum = vals[count]
-        end
-        count +=1 
-      end
+  name_hash.each do |key , value|
+    if lowest_value == 0 || value  < lowest_value
+      lowest_value = value
+      lowest_key = key 
     end
-    i += 1
   end
-  minimum
+  lowest_key
 end
